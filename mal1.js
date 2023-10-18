@@ -134,14 +134,18 @@ let result =arrayfuns.find((x)=>{
 // console.log(result)
 
 const mapArr = [{name:"nived",age:12,place:"vadakara"},
-                {name:"Akash",age:12,place:"calicut"},
-                {name:"Rahul",age:12,place:"vadakara"}]
+                {name:"Akash",age:13,place:"calicut"},
+                {name:"Rahul",age:14,place:"vadakara"}]
 
 // let newArr = mapArr.map((x)=>{
 //     return {...x,sub:"cs"}
 // })
 // console.log(newArr)
 
-const newArr = mapArr.reduce((total,item)=>{
+let newArr = mapArr.reduce((total,item)=>{
+
+    return total+=1
     
-})
+},0)
+
+//console.log(newArr)

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+
+    class Button{
+        constructor(name){
+            this.button = document.createElement('button')
+            this.button.innerText = name;
+            document.body.appendChild(this.button)
+        }
+        set width(width){
+            this.button.style.width = width+'px'
+        }
+        set height(height){
+            this.button.style.height = height+'px'
+        }
+
+        //onClick=fn=>this.button.onclick = fn
+        onClick(fn){
+            this.button.onclick = fn
+        }
+    }
+
+    class GreenButton extends Button{
+        
+        onClick=(fn)=>{
+            super.onClick(function(){
+                this.button.style.background='green'
+                fn()
+            }.bind(this))
+        }
+    }
+            // here bind binds the b1 that is originally an html element to be an object
+
+    let b1 = new GreenButton('b1')
+    b1.width=100
+    b1.height=100
+
+    b1.onClick(()=>{
+        alert('hi')
+    })
+
+    let b2 = new Button('askme')
+    b2.onClick(()=>{
+        alert('pussy cat')
+    })
+
+</script>
+</html>
